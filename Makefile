@@ -1,7 +1,7 @@
 CC = g++
 CFLAGS = -Wall -Werror
 SOURCES = main.cpp output.cpp
-EXECUTABLE = chessviz
+EXECUTABLE = chess.out
 OBJECTS = $(SOURCES:.o=.cpp)
 
 all: $(EXECUTABLE)
