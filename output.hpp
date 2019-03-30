@@ -12,7 +12,7 @@ struct board {
 
 void OutputConsole(const board b);
 
-void OutputText(const board b, string file = "output.txt");
+void OutputText(const board b);
 
 // TODO: HTML file output
 

@@ -12,8 +12,8 @@ void OutputConsole(const board b) {
     cout << "  a b c d e f g h" << endl;
 }
 
-void OutputText(const board b, const string file) {
-    ofstream fout(file);
+void OutputText(const board b) {
+    ofstream fout("output.txt");
 
     for (int i = 0; i < 8; i++) {
         fout << 8 - i << " ";
