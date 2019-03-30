@@ -7,7 +7,7 @@ using std::endl;
 
 // const list of params
 // "--help" for description of program
-const std::string sParam[]{"--help", "--output=console"};
+const std::string sParam[]{"--help", "--output=console", "--output=text"};
 
 int main(int argc, char const* argv[]) {
     // == EXECUTE HANDLER
@@ -29,7 +29,7 @@ int main(int argc, char const* argv[]) {
     if (bParam[0]) {
         cout << "CHESSVIZ_9000 RC" << endl;
         cout << "program for check permissibility of chess match" << endl;
-        cout << "chessviz [--help] [--output=<console>]" << endl;
+        cout << "chessviz [--help] [--output=<console|text>]" << endl;
     }
 
     board b = {
@@ -43,6 +43,9 @@ int main(int argc, char const* argv[]) {
     // output = text
     if (bParam[1])
         OutputConsole(b);
+
+    if (bParam[2])
+        OutputText(b);
 
     return 0;
 }

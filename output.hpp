@@ -1,18 +1,19 @@
 #pragma once
 #ifndef _OUTPUT_H
 
+#include <fstream>
 #include <iostream>
 
-using std::cout;
-using std::endl;
+using namespace std;
 
 struct board {
     char f[8][8];
 };
 
-void OutputConsole(board b);
+void OutputConsole(const board b);
 
-// TODO: Text file output
+void OutputText(const board b, string file = "output.txt");
+
 // TODO: HTML file output
 
 #endif

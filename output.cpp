@@ -11,3 +11,16 @@ void OutputConsole(const board b) {
     }
     cout << "  a b c d e f g h" << endl;
 }
+
+void OutputText(const board b, const string file) {
+    ofstream fout(file);
+
+    for (int i = 0; i < 8; i++) {
+        fout << 8 - i << " ";
+        for (int j = 0; j < 8; j++) {
+            fout << b.f[i][j] << " ";
+        }
+        fout << endl;
+    }
+    fout << "  a b c d e f g h" << endl;
+}
