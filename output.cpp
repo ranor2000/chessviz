@@ -1,5 +1,14 @@
 #include "output.hpp"
 
+void OutputHelp() {
+    cout << "Programm : chessviz" << endl;
+    cout << "Author   : Alexandr Dolbilov" << endl;
+    cout << "How to   : ./chessviz [file] [keys]" << endl;
+    cout << "Keys : " << endl;
+    cout << "--help - to see that help page " << endl;
+    cout << "--output=<console|text|html> - select type of output" << endl;
+}
+
 void OutputConsole(const board b) {
     cout << endl;
     for (int i = 0; i < 8; i++) {

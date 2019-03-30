@@ -10,6 +10,8 @@ struct board {
     char f[8][8];
 };
 
+void OutputHelp();
+
 void OutputConsole(const board b);
 
 void OutputText(const board b);
