@@ -33,3 +33,7 @@
 
 # Visual Studio Code folder
 .vscode
+
+# Output files
+*.html
+*.txt
