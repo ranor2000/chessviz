@@ -14,6 +14,6 @@ void OutputConsole(const board b);
 
 void OutputText(const board b);
 
-// TODO: HTML file output
+void OutputHTML(const board b);
 
 #endif
