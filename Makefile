@@ -13,5 +13,7 @@ $(EXECUTABLE): $(OBJECTS)
 .cpp.o:
 	$(CC) $(CFLAGS) $< -o $@
 
+.PHONY: clean
+
 clean:
 	rm -rf *.o $(EXECUTABLE) $(WORKFILES)
