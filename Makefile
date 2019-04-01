@@ -8,7 +8,7 @@ WORKFILES = output.txt output.html
 all: $(EXECUTABLE)
 
 $(EXECUTABLE): $(OBJECTS)
-	$(CC) $(OBJECTS) -o $@
+	$(CC) $(CFLAGS) $(OBJECTS) -o $@
 
 .cpp.o:
 	$(CC) $(CFLAGS) $< -o $@
