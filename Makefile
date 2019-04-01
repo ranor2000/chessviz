@@ -3,6 +3,7 @@ CFLAGS = -Wall -Werror
 SOURCES = main.cpp output.cpp
 EXECUTABLE = chess.out
 OBJECTS = $(SOURCES:.o=.cpp)
+WORKFILES = output.txt output.html
 
 all: $(EXECUTABLE)
 
@@ -13,4 +14,4 @@ $(EXECUTABLE): $(OBJECTS)
 	$(CC) $(CFLAGS) $< -o $@
 
 clean:
-	rm -rf *.o $(EXECUTABLE)
+	rm -rf *.o $(EXECUTABLE) $(WORKFILES)
