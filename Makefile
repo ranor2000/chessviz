@@ -1,6 +1,6 @@
 CC = g++
 CFLAGS = -Wall -Werror
-SOURCES = main.cpp output.cpp
+SOURCES = src/*.cpp
 EXECUTABLE = chess.out
 OBJECTS = $(SOURCES:.o=.cpp)
 WORKFILES = output.txt output.html
