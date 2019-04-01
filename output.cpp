@@ -143,4 +143,5 @@ void OutputHTML(const board b) {
         }
         fout << "</tr>" << endl;
     }
+    fout << "</body>" << endl;
 }
