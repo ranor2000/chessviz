@@ -32,6 +32,7 @@ void OutputText(const board b) {
         fout << endl;
     }
     fout << "  a b c d e f g h" << endl;
+    fout.close();
 }
 /// const for HTML output
 /// TODO: (may be?) make moar accurate output from prefab file
@@ -144,4 +145,5 @@ void OutputHTML(const board b) {
         fout << "</tr>" << endl;
     }
     fout << "</body>" << endl;
+    fout.close();
 }
