@@ -4,6 +4,6 @@
 
 #include "board.hpp"
 
-void OutputFileHTML(const board b);
+void OutputFileHTML(const Board board);
 
 #endif // BOARD_PRINT_HTML_H

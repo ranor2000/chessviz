@@ -45,7 +45,7 @@ const string Style
 
 const string a = "0";
 
-void OutputFileHTML(const board b) {
+void OutputFileHTML(const Board board) {
     ofstream fout("output.html");
 
     /// initial file text
@@ -61,54 +61,51 @@ void OutputFileHTML(const board b) {
     /// TODO: list of turns
     fout << "<caption>TODO: list of turns</caption>" << endl;
     /// board output
-    for (int i = 0; i < 8; i++) {
+    for (int i = 7; i >= 0; i--) {
         fout << "<tr>" << endl;
         for (int j = 0; j < 8; j++) {
             fout << "<td>";
-            /// figure output here
-            switch (b.f[i][j]) {
-            /// BLACK
-            case 'p':
-                fout << "<span class=\"black pawn\"></span>";
+
+            // empty
+            if (board[i][j].color == none) {
+                fout << "</td>";
+                continue;
+            }
+
+            // color detecting
+            fout << "<span class=\"";
+            if (board[i][j].color == black)
+                fout << "black ";
+            else
+                fout << "white ";
+
+            // figure detect
+            switch (board[i][j].figure) {
+            case king:
+                fout << "king";
                 break;
-            case 'r':
-                fout << "<span class=\"black rook\"></span>";
+            case queen:
+                fout << "queen";
                 break;
-            case 'n':
-                fout << "<span class=\"black knight\"></span>";
+            case bishop:
+                fout << "bishop";
                 break;
-            case 'b':
-                fout << "<span class=\"black bishop\"></span>";
+            case pawn:
+                fout << "pawn";
                 break;
-            case 'q':
-                fout << "<span class=\"black queen\"></span>";
+            case knight:
+                fout << "knight";
                 break;
-            case 'k':
-                fout << "<span class=\"black king\"></span>";
+            case rook:
+                fout << "rook";
                 break;
-            /// WHITE
-            case 'P':
-                fout << "<span class=\"white pawn\"></span>";
-                break;
-            case 'R':
-                fout << "<span class=\"white rook\"></span>";
-                break;
-            case 'N':
-                fout << "<span class=\"white knight\"></span>";
-                break;
-            case 'B':
-                fout << "<span class=\"white bishop\"></span>";
-                break;
-            case 'Q':
-                fout << "<span class=\"white queen\"></span>";
-                break;
-            case 'K':
-                fout << "<span class=\"white king\"></span>";
+            default:
                 break;
             }
-            fout << "</td>" << endl;
+            fout << "\"></span>";
+            fout << "</td>";
         }
-        fout << "</tr>" << endl;
+        fout << "</tr>";
     }
     fout << "</body>" << endl;
     fout.close();
