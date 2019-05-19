@@ -4,6 +4,6 @@ script:
   - make
   - cd bin
   - ./chessviz.out --help
-  - ./chessviz.out --output=console
-
+  - git ls-files src/ | xargs clang-format -i && git diff --exit-code
+  
 dist: xenial
