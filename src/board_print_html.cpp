@@ -1,39 +1,5 @@
-#include "output.hpp"
+#include "board_print_html.hpp"
 
-void OutputHelp() {
-    cout << "Programm : chessviz" << endl;
-    cout << "Author   : Alexandr Dolbilov" << endl;
-    cout << "How to   : ./chessviz [file] [keys]" << endl;
-    cout << "Keys : " << endl;
-    cout << "--help - to see that help page " << endl;
-    cout << "--output=<console|text|html> - select type of output" << endl;
-}
-
-void OutputConsole(const board b) {
-    cout << endl;
-    for (int i = 0; i < 8; i++) {
-        cout << 8 - i << " ";
-        for (int j = 0; j < 8; j++) {
-            cout << b.f[i][j] << " ";
-        }
-        cout << endl;
-    }
-    cout << "  a b c d e f g h" << endl;
-}
-
-void OutputText(const board b) {
-    ofstream fout("output.txt");
-
-    for (int i = 0; i < 8; i++) {
-        fout << 8 - i << " ";
-        for (int j = 0; j < 8; j++) {
-            fout << b.f[i][j] << " ";
-        }
-        fout << endl;
-    }
-    fout << "  a b c d e f g h" << endl;
-    fout.close();
-}
 /// const for HTML output
 /// TODO: (may be?) make moar accurate output from prefab file
 const string Doctype = "<!DOCTYPE HTML>";
@@ -79,7 +45,7 @@ const string Style
 
 const string a = "0";
 
-void OutputHTML(const board b) {
+void OutputFileHTML(const board b) {
     ofstream fout("output.html");
 
     /// initial file text
