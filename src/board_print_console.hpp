@@ -4,7 +4,7 @@
 
 #include "board.hpp"
 
-void OutputConsoleBoard(const board b);
+void OutputConsoleBoard(const Board board);
 
 void OutputConsoleHelp();
 
