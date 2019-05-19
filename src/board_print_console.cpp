@@ -1,11 +1,16 @@
 #include "board_print_console.hpp"
 
-void OutputConsoleBoard(const board b) {
+void OutputConsoleBoard(const Board board) {
     cout << endl;
-    for (int i = 0; i < 8; i++) {
+    for (int i = 7; i >= 0; i--) {
         cout << 8 - i << " ";
         for (int j = 0; j < 8; j++) {
-            cout << b.f[i][j] << " ";
+            if (board[i][j].color == none)
+                cout << "  ";
+            else
+                cout << char((int)board[i][j].figure
+                             - LTU * (int)board[i][j].color)
+                     << " ";
         }
         cout << endl;
     }
