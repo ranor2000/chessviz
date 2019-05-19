@@ -3,7 +3,7 @@ language: cpp
 script:
   - make
   - cd bin
-  - ./chess.out --output=console
-
+  - ./chessviz.out --help
+  - ./chessviz.out --output=console
 
 dist: xenial
