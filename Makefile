@@ -17,13 +17,20 @@ SOURCE = src
 # all prog is 
 all: $(BIN)/$(EXE)
 
-$(BIN)/$(EXE): $(BUILD)/output.o $(BUILD)/main.o
-	$(CXX) $(FLAGS) -o $(BIN)/$(EXE) $(BUILD)/output.o $(BUILD)/main.o
+$(BIN)/$(EXE): $(BUILD)/board_print_console.o $(BUILD)/board_print_html.o $(BUILD)/board_print_text.o $(BUILD)/main.o
+	$(CXX) $(FLAGS) -o $(BIN)/$(EXE) $(BUILD)/board_print_console.o $(BUILD)/board_print_html.o $(BUILD)/board_print_text.o $(BUILD)/main.o
+
 
 $(BUILD)/main.o: $(SOURCE)/main.cpp
 	$(CXX) $(FLAGS) -c -o $@ $<
 
-$(BUILD)/output.o: $(SOURCE)/output.cpp
+$(BUILD)/board_print_console.o: $(SOURCE)/board_print_console.cpp
+	$(CXX) $(FLAGS) -c -o $@ $<
+
+$(BUILD)/board_print_html.o: $(SOURCE)/board_print_html.cpp
+	$(CXX) $(FLAGS) -c -o $@ $<
+
+$(BUILD)/board_print_text.o: $(SOURCE)/board_print_text.cpp
 	$(CXX) $(FLAGS) -c -o $@ $<
 
 # cleaning of workfiles

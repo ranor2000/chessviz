@@ -1,5 +1,8 @@
-#include "output.hpp"
-#include <iostream>
+
+#include "board_print_console.hpp"
+#include "board_print_html.hpp"
+#include "board_print_text.hpp"
+
 #include <string.h>
 
 int main(int argc, char const* argv[]) {
@@ -19,14 +22,18 @@ int main(int argc, char const* argv[]) {
             // check for "--help"
 
             if (!strcmp(argv[i], "--help"))
-                OutputHelp();
-            if (!strcmp(argv[i], "--output=console"))
-                OutputConsole(b);
-            if (!strcmp(argv[i], "--output=text"))
-                OutputText(b);
-            if (!strcmp(argv[i], "--output=html"))
-                OutputHTML(b);
+                OutputConsoleHelp();
+            else if (!strcmp(argv[i], "--output=console"))
+                OutputConsoleBoard(b);
+            else if (!strcmp(argv[i], "--output=text"))
+                OutputFileText(b);
+            else if (!strcmp(argv[i], "--output=html"))
+                OutputFileHTML(b);
+            else
+                cout << "Wrong arguments!" << endl;
         }
+    else
+        OutputConsoleHelp(); // Help output by default
 
     return 0;
 }
