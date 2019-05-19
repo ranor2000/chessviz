@@ -1,19 +1,37 @@
-CC = g++
-CFLAGS = -Wall -Werror
-SOURCES = src/*.cpp
-EXECUTABLE = chess.out
-OBJECTS = $(SOURCES:.o=.cpp)
-WORKFILES = output.txt output.html
+# program executable 
+EXE = chessviz.out
 
-all: $(EXECUTABLE)
+# compiler settings
+CXX = g++
+FLAGS = -Wall -Werror
 
-$(EXECUTABLE): $(OBJECTS)
-	$(CC) $(CFLAGS) $(OBJECTS) -o $@
+# folders of project
+BIN = bin
+BUILD = build
+SOURCE = src
 
-.cpp.o:
-	$(CC) $(CFLAGS) $< -o $@
+#
+# TODO: remake all files to var's
+#
 
-.PHONY: clean
+# all prog is 
+all: $(BIN)/$(EXE)
 
+$(BIN)/$(EXE): $(BUILD)/output.o $(BUILD)/main.o
+	$(CXX) $(FLAGS) -o $(BIN)/$(EXE) $(BUILD)/output.o $(BUILD)/main.o
+
+$(BUILD)/main.o: $(SOURCE)/main.cpp
+	$(CXX) $(FLAGS) -c -o $@ $<
+
+$(BUILD)/output.o: $(SOURCE)/output.cpp
+	$(CXX) $(FLAGS) -c -o $@ $<
+
+# cleaning of workfiles
 clean:
-	rm -rf *.o $(EXECUTABLE) $(WORKFILES)
+	rm -rf $(BIN)/* $(BUILD)/*
+
+# creating folders
+dir:
+	mkdir $(BIN) $(BUILD)
+
+.PHONY: all clean dir
