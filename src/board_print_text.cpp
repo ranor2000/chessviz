@@ -1,12 +1,17 @@
 #include "board_print_text.hpp"
 
-void OutputFileText(const board b) {
+void OutputFileText(const Board board) {
     ofstream fout("output.txt");
 
-    for (int i = 0; i < 8; i++) {
-        fout << 8 - i << " ";
+    for (int i = 7; i >= 0; i--) {
+        fout << i + 1 << " ";
         for (int j = 0; j < 8; j++) {
-            fout << b.f[i][j] << " ";
+            if (board[i][j].color == none)
+                fout << "  ";
+            else
+                fout << char((int)board[i][j].figure
+                             - LTU * (int)board[i][j].color)
+                     << " ";
         }
         fout << endl;
     }

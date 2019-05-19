@@ -4,6 +4,6 @@
 
 #include "board.hpp"
 
-void OutputFileText(const board b);
+void OutputFileText(const Board board);
 
 #endif // BOARD_PRINT_TEXT_H
