@@ -3,7 +3,7 @@ EXE = chessviz.out
 
 # compiler settings
 CXX = g++
-FLAGS = -Wall -Werror
+FLAGS = -Wall -Werror -std=c++14
 
 # folders of project
 BIN = bin
